@@ -1,0 +1,29 @@
+||****************************************||
+Auther: QinShuo
+Date  : 2015.4.19
+Site  : SIAT, Shenzhen, China
+||****************************************||
+
+Project Name: Medical Image Registration Tool 
+Background  : Shenzhen 2nd Hospital & Chinese University of HK.
+
+Functions:
+	Medical Image Read
+	Image Display
+	Image Registration
+	Dicom Write Function
+
+
+Tools:
+	VTK 5.10
+	ITK 4.4
+	GDCM 2.4
+	QT  4
+	
+
+
+
+
+
+
+
