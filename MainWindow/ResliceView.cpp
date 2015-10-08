@@ -199,7 +199,7 @@ void reslice_view_base::Set_View_Img(vtkSmartPointer<vtkImageData> img)
 	std::cout<<"range is "<<valuesRange[0]<<"|"<<valuesRange[1]<<std::endl;
 	//set window level
 	this->WindowLevel1->SetWindow(valuesRange[1]-valuesRange[0]);
-	this->WindowLevel1->SetLevel((valuesRange[1]+valuesRange[0])/2);
+	this->WindowLevel1->SetLevel((valuesRange[1]+valuesRange[0])*2/5);
 
 
 	SetUpSlider(this->view_window->GetInteractor());
