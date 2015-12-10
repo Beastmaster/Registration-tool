@@ -35,7 +35,11 @@ void construct_base::Re_Construct()
 	{
 		return;
 	}
+#if VTK_MAJOR_VERSION <= 5
 	marchingCubes->SetInput(this->img_to_Construct);
+#else
+	marchingCubes->SetInputData(this->img_to_Construct);
+#endif
 	//marchingCubes->SetNumberOfContours(2);
 	marchingCubes->SetValue(0,this->value_cube);
 	//marchingCubes update
@@ -43,7 +47,12 @@ void construct_base::Re_Construct()
 	//add mapper
 	vtkSmartPointer<vtkDataSetMapper> mapper = 
 		vtkSmartPointer<vtkDataSetMapper>::New();
+
+#if VTK_MAJOR_VERSION <= 5
 	mapper->SetInput(marchingCubes->GetOutput());
+#else
+	mapper->SetInputData(marchingCubes->GetOutput());
+#endif
 	actor->SetMapper(mapper);
 	this->view_window->Render();
 }

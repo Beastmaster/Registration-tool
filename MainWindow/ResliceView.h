@@ -76,7 +76,12 @@ private:
 
 	double spacing[3];
 	double origin[3];
+
+#if VTK_MAJOR_VERSION <= 5
 	int    extent_m[6];
+#else
+	int*	extent_m;
+#endif
 
 	vtkSmartPointer<vtkImageData> img_to_view;
 	vtkSmartPointer<vtkImageData> img_to_mask;

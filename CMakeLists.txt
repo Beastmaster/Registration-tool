@@ -5,12 +5,26 @@ PROJECT(${PROJECT_NAME})
  
 find_package(ITK REQUIRED)
 include(${ITK_USE_FILE})
- 
+
+find_package(GDCM REQUIRED)
+include(${GDCM_USE_FILE})
+
 find_package(VTK REQUIRED)
 include(${VTK_USE_FILE})
 
-find_package(Qt4 REQUIRED)
-include(${QT_USE_FILE})
+#find_package(Qt5 REQUIRED)
+#include(${QT_USE_FILE})
+
+
+# find and use QT5 lib
+# Find includes in corresponding build directories
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+# Instruct CMake to run moc automatically when needed.
+set(CMAKE_AUTOMOC ON)
+
+# Find the QtWidgets library
+find_package(Qt5Widgets REQUIRED)
+
 
 include_directories(
 registration

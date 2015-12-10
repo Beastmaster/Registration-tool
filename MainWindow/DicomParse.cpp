@@ -604,7 +604,13 @@ void DicomParseClass::Log2Container_inDicomParse(QString log_name,File_info_in_D
 			vtkSmartPointer<vtkImageChangeInformation>::New();
 		changer->SetOutputSpacing(spacing);
 		//change 
+	
+#if VTK_MAJOR_VERSION <= 5
 		changer->SetInput(buff);
+#else
+		changer->SetInputData(buff);
+#endif
+
 		//changer->SetOutputOrigin(origin);
 		changer->Update();
 
@@ -799,7 +805,11 @@ void DicomParseClass::Log2Container_inDicomParse_Exception(QString log_name, Fil
 			vtkSmartPointer<vtkImageChangeInformation>::New();
 		changer->SetOutputSpacing(spacing);
 		//change 
+#if VTK_MAJOR_VERSION <= 5
 		changer->SetInput(buff);
+#else
+		changer->SetInputData(buff);
+#endif
 		//changer->SetOutputOrigin(origin);
 		changer->Update();
 
@@ -1004,7 +1014,12 @@ void DicomParseClass::Log2Container_inDicomParse_Stereo(QString log_name, File_i
 			vtkSmartPointer<vtkImageChangeInformation>::New();
 		changer->SetOutputSpacing(spacing);
 		//change 
+#if VTK_MAJOR_VERSION <= 5
 		changer->SetInput(buff);
+#else
+		changer->SetInputData(buff);
+#endif
+		
 		//changer->SetOutputOrigin(origin);
 		changer->Update();
 
@@ -1203,7 +1218,11 @@ void DicomParseClass::Log2Container_inDicomParse_Stereo_Only(QString log_name, F
 			vtkSmartPointer<vtkImageChangeInformation>::New();
 		changer->SetOutputSpacing(spacing);
 		//change 
+#if VTK_MAJOR_VERSION <= 5
 		changer->SetInput(buff);
+#else
+		changer->SetInputData(buff);
+#endif
 		//changer->SetOutputOrigin(origin);
 		changer->Update();
 
