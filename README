@@ -21,7 +21,11 @@ Tools:
 	QT  4
 	
 
-
+Update: 
+  Migrate to VTK6 QT5
+	VTK 6.3
+	ITK 4.8
+	QT 5
 
 
 
