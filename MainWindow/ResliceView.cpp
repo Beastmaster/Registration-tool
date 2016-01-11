@@ -203,7 +203,7 @@ void reslice_view_base::Set_View_Img(vtkSmartPointer<vtkImageData> img)
 	std::cout<<"range is "<<valuesRange[0]<<"|"<<valuesRange[1]<<std::endl;
 	//set window level
 	this->WindowLevel1->SetWindow(valuesRange[1]-valuesRange[0]);
-	this->WindowLevel1->SetLevel((valuesRange[1]+valuesRange[0])*2/5);
+	this->WindowLevel1->SetLevel((valuesRange[1]+valuesRange[0])/2);
 
 
 	SetUpSlider(this->view_window->GetInteractor());
@@ -274,6 +274,7 @@ void reslice_view_base::RenderView()
 	this->WindowLevel1->SetInput(this->reslice->GetOutput());
 #else
 	this->WindowLevel1->SetInputData(this->reslice->GetOutput());
+	this->WindowLevel1->Update();
 #endif
 	if (this->img_to_mask != NULL)
 	{
@@ -305,10 +306,11 @@ void reslice_view_base::RenderView()
 		this->WindowLevel2->SetInput(this->mask_reslice->GetOutput());
 #else
 		this->WindowLevel2->SetInputData(this->mask_reslice->GetOutput());
+		this->WindowLevel2->Update();
 #endif
 	}
 
-	this->new_render->ResetCamera();
+	//this->new_render->ResetCamera();
 	this->view_window->Render();
 }
 
