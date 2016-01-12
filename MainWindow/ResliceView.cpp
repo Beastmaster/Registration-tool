@@ -270,6 +270,7 @@ void reslice_view_base::RenderView()
 	this->reslice->SetResliceAxesDirectionCosines(this->view_dirX,this->view_dirY,this->view_dirZ);
 	this->reslice->SetResliceAxesOrigin(center);
 	this->reslice->SetInterpolationModeToLinear();
+	this->reslice->Update();
 #if VTK_MAJOR_VERSION <= 5
 	this->WindowLevel1->SetInput(this->reslice->GetOutput());
 #else
